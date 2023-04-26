@@ -1,8 +1,9 @@
 package main
 
-import laststoneweight "leetCode/lastStoneWeight"
+import (
+	adddigits "leetCode/addDigits"
+)
 
 func main() {
-	nums := []int{1, 3}
-	laststoneweight.LastStoneWeight(nums)
+	adddigits.AddDigits(38)
 }
