@@ -1,6 +1,6 @@
-package average
+package average_salary
 
-func average(salary []int) float64 {
+func averagesalary(salary []int) float64 {
 	var max int
 	min := 100000
 	var sum int
