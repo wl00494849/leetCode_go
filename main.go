@@ -1,9 +1,8 @@
 package main
 
-import (
-	adddigits "leetCode/addDigits"
-)
+import "fmt"
 
 func main() {
-	adddigits.AddDigits(38)
+	m := map[int]int{}
+	fmt.Println(m[9])
 }
