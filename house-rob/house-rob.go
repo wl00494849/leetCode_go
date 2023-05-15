@@ -1,4 +1,4 @@
-package rob
+package house_rob
 
 // memo botton up
 func rob(nums []int) int {
