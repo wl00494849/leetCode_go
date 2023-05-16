@@ -1,10 +1,26 @@
 package swappingnodesinlnkedlist
 
-import "fmt"
-
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+// swap Val
+func swapNodes1(head *ListNode, k int) *ListNode {
+	left := head
+	count := 1
+	for count < k {
+		count++
+		left = left.Next
+	}
+	right := head
+	for node := left; node.Next != nil; node = node.Next {
+		right = right.Next
+	}
+
+	left.Val, right.Val = right.Val, left.Val
+
+	return head
 }
 
 // hint Version
@@ -16,10 +32,6 @@ func swapNodes(head *ListNode, k int) *ListNode {
 	}
 
 	swap(&arr[k-1], &arr[len(arr)-k])
-
-	for i := 0; i < len(arr); i++ {
-		fmt.Println(arr[i])
-	}
 
 	newHead := ListNode{}
 	linkList := &newHead
