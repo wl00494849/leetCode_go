@@ -1,7 +1,5 @@
 package maximumtwinsumoflinkedlist
 
-import "fmt"
-
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -28,8 +26,6 @@ func pairSum(head *ListNode) int {
 	}
 	copyhead = copyhead.Next
 	for i := 0; i < count/2; i++ {
-		fmt.Println(copyhead.Val)
-		fmt.Println(prev.Val)
 		result = max(copyhead.Val+prev.Val, result)
 		copyhead = copyhead.Next
 		prev = prev.Next
@@ -47,5 +43,27 @@ func max(a, b int) int {
 
 // optimal version
 func pairSum1(head *ListNode) int {
-	return 0
+	var prev *ListNode
+	var result int
+	slow := head
+	fast := head
+	for fast != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+	}
+
+	for slow != nil {
+		temp := slow.Next
+		slow.Next = prev
+		prev = slow
+		slow = temp
+	}
+
+	for prev != nil {
+		result = max(head.Val+prev.Val, result)
+		head = head.Next
+		prev = prev.Next
+	}
+
+	return result
 }
