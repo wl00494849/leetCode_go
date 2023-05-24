@@ -5,6 +5,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// first version
 func pairSum(head *ListNode) int {
 	var prev *ListNode
 	var count int

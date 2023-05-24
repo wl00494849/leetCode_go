@@ -1,8 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	topkfrequent "leetCode/topKFrequent"
+)
 
 func main() {
-	m := map[int]int{}
-	fmt.Println(m[9])
+	nums := []int{1, 1, 1, 2, 2, 3}
+	res := topkfrequent.TopKFrequent(nums, 2)
+	fmt.Println(res)
 }
