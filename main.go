@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	topkfrequent "leetCode/topKFrequent"
+	sumoddlengthsubarrays "leetCode/sumOddLengthSubarrays"
 )
 
 func main() {
-	nums := []int{1, 1, 1, 2, 2, 3}
-	res := topkfrequent.TopKFrequent(nums, 2)
+	nums := []int{10, 11, 12}
+	res := sumoddlengthsubarrays.SumOddLengthSubarrays(nums)
 	fmt.Println(res)
 }
