@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	sumoddlengthsubarrays "leetCode/sumOddLengthSubarrays"
+	"leetCode/subsets"
 )
 
 func main() {
-	nums := []int{10, 11, 12}
-	res := sumoddlengthsubarrays.SumOddLengthSubarrays(nums)
+	nums := []int{1, 2, 3}
+	res := subsets.Subsets(nums)
 	fmt.Println(res)
 }
