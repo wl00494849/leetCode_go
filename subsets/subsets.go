@@ -1,29 +1,21 @@
 package subsets
 
-func Subsets(nums []int) [][]int {
+func subsets(nums []int) [][]int {
 	res := [][]int{}
-	res = append(res, []int{})
-	backtracking(nums, &res, 1)
+	backtracking(nums, &res, 0, []int{})
 	return res
 }
 
-func backtracking(nums []int, res *[][]int, count int) {
+func backtracking(nums []int, res *[][]int, index int, subset []int) {
 
-	if count > len(nums) {
+	if index == len(nums) {
+		*res = append(*res, subset)
 		return
 	}
 
-	var start int
-
-	for i := 0; i < len(nums); i = i + count {
-		var arr []int
-		slide := start
-		for j := 0; j < count; j++ {
-			arr = append(arr, nums[slide])
-			slide++
-		}
-		start++
-		*res = append(*res, arr)
+	for i := index; i < len(nums); i++ {
+		subset = append(subset, nums[i])
+		backtracking(nums, res, index+1, subset)
+		subset = subset[:len(subset)-1]
 	}
-	backtracking(nums, res, count+1)
 }
