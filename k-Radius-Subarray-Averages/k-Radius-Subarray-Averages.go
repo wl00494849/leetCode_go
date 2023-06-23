@@ -1,5 +1,6 @@
 package kradiussubarrayaverages
 
+// Slide Window
 func getAverages(nums []int, k int) []int {
 	var size = len(nums)
 	var length = k*2 + 1
