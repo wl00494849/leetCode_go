@@ -16,7 +16,3 @@ func numRescueBoats(people []int, limit int) int {
 
 	return boat
 }
-
-func main() {
-
-}
