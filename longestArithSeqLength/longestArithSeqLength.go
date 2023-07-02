@@ -1,17 +1,28 @@
 package longestarithseqlength
 
 func longestArithSeqLength(nums []int) int {
-	var max int
+	var maxLen int
+	// dp[right][diff]
+	var dp []map[int]int
+	// init dp
+	for i := 0; i <= len(nums); i++ {
+		dp = append(dp, map[int]int{})
+	}
+	//right
 	for i := 1; i < len(nums); i++ {
-		diff := nums[i-1] - nums[i]
-		m := map[int]int{}
-		m[diff]++
-		for _, v := range m {
-			if v > max {
-				max = v
-			}
+		// left
+		for j := 0; j < i; j++ {
+			diff := nums[i] - nums[j]
+			dp[i][diff] = dp[j][diff] + 1
+			maxLen = max(dp[i][diff], maxLen)
 		}
 	}
+	return maxLen + 1
+}
 
-	return max
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
