@@ -2,20 +2,22 @@ package subsets
 
 func subsets(nums []int) [][]int {
 	res := [][]int{}
-	backtracking(nums, &res, 0, []int{})
+	for i := 0; i <= len(nums); i++ {
+		backtrack(nums, 0, i, []int{}, &res)
+	}
 	return res
 }
 
-func backtracking(nums []int, res *[][]int, index int, subset []int) {
-
-	if index == len(nums) {
-		*res = append(*res, subset)
+func backtrack(nums []int, index int, k int, subset []int, res *[][]int) {
+	if len(subset) == k {
+		temp := make([]int, k)
+		copy(temp, subset)
+		*res = append(*res, temp)
 		return
 	}
-
 	for i := index; i < len(nums); i++ {
 		subset = append(subset, nums[i])
-		backtracking(nums, res, index+1, subset)
+		backtrack(nums, index+1, k, subset, res)
 		subset = subset[:len(subset)-1]
 	}
 }
