@@ -2,8 +2,15 @@ package findduplicate
 
 import "sort"
 
-// hash map 35.8% low runtime high memory
+// FlofindDuplicateyd Cycle Detection 98.8%
+// theoretically O(n)
 func findDuplicate(nums []int) int {
+	return 0
+}
+
+// hash map 35.8% low runtime high memory
+// theoretically O(n)
+func findDuplicate1(nums []int) int {
 	m := map[int]int{}
 	for i := 0; i < len(nums); i++ {
 		m[nums[i]]++
@@ -16,7 +23,8 @@ func findDuplicate(nums []int) int {
 
 // sort 6.85% high runtime low memory
 // quick sort
-func findDuplicate1(nums []int) int {
+// theoretically O(nlogn)
+func findDuplicate2(nums []int) int {
 	sort.Ints(nums)
 	for i := 1; i < len(nums); i++ {
 		if nums[i] == nums[i-1] {
